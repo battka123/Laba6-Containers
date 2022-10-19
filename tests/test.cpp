@@ -113,19 +113,19 @@ TEST(Test4, wordsMapCounter) {
 TEST(Test5, uniqueWords) {
   // базовый сценарий
   std::vector<std::string> unique = uniqueWords("Can you can");
-  std::vector<std::string> result = {"Can", "you", "can"};
+  std::vector<std::string> result = {"Can", "can", "you"};
   EXPECT_EQ(unique, result);
   // с запятой
   unique = uniqueWords("Can,you, can,a,can");
-  result = {"Can", "you", "can", "a"};
+  result = {"Can", "a", "can", "you"};
   EXPECT_EQ(unique, result);
   // c точкой
   unique = uniqueWords("Can.you. can.a.can.now");
-  result = {"Can", "you", "can", "a", "now"};
+  result = {"Can", "a", "can", "now", "you"};
   EXPECT_EQ(unique, result);
   // c разными знаками
   unique = uniqueWords("Can you,can. a.can now.");
-  result = {"Can", "you", "can", "a", "now"};
+  result = {"Can", "a", "can", "now", "you"};
   EXPECT_EQ(unique, result);
   // одно слово
   unique = uniqueWords("hi");
@@ -179,7 +179,7 @@ TEST(Test7, reverseNum) {
   // базовый сценарий
   std::list<int> nums = {1, 5, 4, -3};
   reverseNum(nums);
-  result = {-1, 1, -5, 5, -4, 4, 3, -3};
+  std::list<int>result = {-1, 1, -5, 5, -4, 4, 3, -3};
   EXPECT_EQ(nums, result);
   // только отрицательные
   nums = {-1, -5, -4, -3};
